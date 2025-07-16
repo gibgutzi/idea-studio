@@ -13,3 +13,31 @@ Uses output from previous Request Prompt iteration <project_request> to generate
 Add rules about project/technical architecture in <project_rules>
 
 Add existing boilerplate project code in <starter_template> - use tools like Gitingest, Repoprompt, Repomix
+
+Once you're happy you will have your final PRD/Tech Spec.
+
+
+### PRD
+
+Take the PRD and place it into your project as `prd.md`
+
+Then initialize task-master and run following commands: 
+```
+tm parse-prd
+```
+
+```
+tm generate
+```
+
+```
+tm analyze-complexity
+```
+
+```
+tm complexity-report
+```
+
+```
+tm expand --all 
+```
