@@ -26,7 +26,7 @@ Then initialize task-master and run following commands:
 
 Generate tasks from a PRD document:
 ```  
-tm parse-prd
+tm parse-prd --input=<prd-file>
 ```
 
 Create individual task files from tasks.json:
