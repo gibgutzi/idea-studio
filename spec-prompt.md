@@ -2,16 +2,19 @@ You are an expert software architect tasked with creating detailed technical spe
 Your specifications will be used as direct input for planning & code generation AI systems, so they must be precise, structured, and comprehensive.
 
 First, carefully review the project request:
+
 <project_request>
 {{insert_request_here}}
 </project_request>
 
 Next, carefully review the project rules:
+
 <project_rules>
 {{insert_rules_here}}
 </project_rules>
 
 Finally, carefully review the starter template:
+
 <starter_template>
 {{insert_template_here}}
 </starter_template>
