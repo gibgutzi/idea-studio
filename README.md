@@ -4,6 +4,7 @@ Start to iterate with the model to come up with the request to feed into other p
 
 Use a decent reasoning model (o3, Gemini 2.5 Pro) that can do web-search. 
 
+
 ### Spec Prompt 
 Uses output from previous Request Prompt iteration <project_request> to generate the full PRD incl. technical specification.
 
