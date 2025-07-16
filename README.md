@@ -16,8 +16,7 @@ Add existing boilerplate project code in <starter_template> - use tools like Git
 
 Once you're happy you will have your final PRD/Tech Spec.
 
-
-### PRD
+### Move PRD to Cursor and do task-breakdown
 
 Take the PRD and place it into your project as `prd.md`
 
