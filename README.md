@@ -53,10 +53,14 @@ tm expand --all
 
 ## 4. Set up Cursor Rules 📜
 
+Set user rules if you want in Cursor Settings > Rules & Memories > User Rules 
+- [User rules by Shaoru from Cursor](https://github.com/gibgutzi/idea-studio/blob/edf3063f09c03d8bca7ad22d515928d9efebaf51/cursor-user-rules.md)
+
 Set up additional rules for your project 
 - [Technical Architecture](https://github.com/gibgutzi/idea-studio/blob/main/tech_architecture.mdc)
 - [Conventional Commits](https://github.com/gibgutzi/idea-studio/blob/477e2f5c0e0dce04ff79c726ef314b5ec9d2ee31/conventional_commits.mdc)
 
+Should look similar to this:
 
 ``` 
 .
