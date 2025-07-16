@@ -21,7 +21,7 @@ Once you're happy you will have your final PRD/Tech Spec.
 
 Take the PRD and place it into your project as `prd.md`
 
-Then initialize [Taskmaster AI](https://www.task-master.dev/ and run following commands: 
+Then initialize [Taskmaster AI](https://www.task-master.dev/) and run following commands: 
 
 
 Generate tasks from a PRD document:
