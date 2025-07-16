@@ -1,12 +1,12 @@
 # How to - from idea to tasks
-## 1. Request prompt 
+## 1. Request prompt - high level app idea
 
 Start to iterate with the model to come up with the request to feed into other prompts, this is turn based and will take a couple of messages forth and back with the model to refine the details. 
 
 Use a decent reasoning model (o3, Gemini 2.5 Pro) that can do web-search. 
 
 
-## 2. Spec prompt 
+## 2. Spec prompt - get detailed PRD
 
 Uses output from previous Request Prompt iteration <project_request> to generate the full PRD incl. technical specification.
 
