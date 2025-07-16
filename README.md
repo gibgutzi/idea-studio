@@ -23,24 +23,28 @@ Take the PRD and place it into your project as `prd.md`
 
 Then initialize task-master and run following commands: 
 
+
+Generate tasks from a PRD document:
 ```  
 tm parse-prd
 ```
-Generate tasks from a PRD document
 
-
+Create individual task files from tasks.json:
 ```
 tm generate
 ```
 
+Analyze tasks and generate expansion recommendations:
 ```
 tm analyze-complexity
 ```
 
+Display the complexity analysis report:
 ```
 tm complexity-report
 ```
 
+Expand all pending tasks with subtasks:
 ```
 tm expand --all 
 ```
