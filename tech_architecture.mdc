@@ -1,0 +1,128 @@
+---
+description: Technical architecture and technology choices for the project
+globs: "*"
+alwaysApply: false
+---
+
+<rule>
+name: tech-architecture
+description: Defines the technical stack, design patterns, and architecture decisions for MyApp
+filters:
+  - type: intent
+    pattern: "tech stack|architecture|framework|libraries|technical decisions|database|infrastructure|build|testing|security|git workflow"
+actions:
+  - type: suggest
+    message: |
+      # MyApp Technical Architecture
+      
+      MyApp is a full-stack web application that couples a **TypeScript / React** front-end with a **Python (FastAPI)** back-end.  
+      Gen-AI flows run through **LangGraph / LangChain**, while document retrieval and vector storage are handled by **LangConnect** (an OSS RAG API built on FastAPI and pgvector).  
+      All persistent data (users, projects, chat threads, embeddings) lives in **Supabase Postgres**.
+
+      ## Programming Languages
+      - Primary: TypeScript (Next.js frontend)
+      - Secondary: Python 3.12 (FastAPI backend)
+      
+      ## Frameworks & Libraries
+      - Frontend: Next.js 14 (React, RSC) with TypeScript
+      - Backend: FastAPI with LangGraph / LangChain
+      - Retrieval service: LangConnect (FastAPI microservice for RAG)
+      - Testing: Vitest + React Testing Library (frontend), Pytest (backend), Playwright (E2E)
+      - State management: TanStack Query (server state) + Zustand (UI state)
+      - Styling: Tailwind CSS with shadcn-ui and Framer Motion
+      
+      ## Database
+      - Primary: PostgreSQL on Supabase with pgvector extension
+      - ORM: SQLModel
+      - Cache: Redis (port 6379)
+      
+      ## Infrastructure
+      - Hosting: [To be defined]
+      - Auth: Supabase Auth (JWT)
+      - Payments: Stripe SDK + FastAPI webhook route
+      - Build tool: Turbopack inside Turborepo
+      - Package manager: pnpm
+      
+      ## Architecture Pattern
+      - Full-stack web application with microservices
+      - Frontend: Component-based React with RSC
+      - Backend: API-first with FastAPI
+      - RAG service: Separate LangConnect microservice
+      
+      ## API Design
+      - REST APIs with FastAPI
+      - Gen-AI flows through LangGraph / LangChain
+      - Document retrieval via LangConnect RAG API
+      
+      ## Performance Considerations
+      - Server-side rendering with Next.js RSC
+      - Vector search with pgvector
+      - Redis caching for worker queues
+      
+      ## Security Requirements
+      - Secrets only in environment variables, never committed
+      - Supabase Row-Level Security on every table (auth.uid() policies)
+      - Input validation: Zod (client) and Pydantic (server)
+      - HTTPS enforcement in production
+      - Weekly dependency audits: pnpm audit, pip-audit
+      - Least-privilege for DB roles, service keys, and Stripe credentials
+      
+      ## Development Environment
+      - Frontend dev server: http://localhost:3000
+      - Backend dev server: http://localhost:8000
+      - LangConnect dev server: http://localhost:8080
+      - Postgres (Supabase): port 5432
+      - Supabase Realtime WS: port 54321
+      - Redis: port 6379
+      
+      ## Code Style
+      - **TypeScript**: strict mode, exactOptionalPropertyTypes, noUncheckedIndexedAccess; single quotes; trailing commas; 100-char lines; consistent-type-imports; never use @ts-expect-error or @ts-ignore
+      - **Python**: Ruff + black (PEP 8, 88-char lines); full type hints; no wildcard imports
+      - **General**: Tabs for indentation (2 spaces for YAML/JSON/MD); JSDoc for TS, docstrings for Python; descriptive CamelCase with "URL", "API", "ID"; prefer functional patterns
+      
+      ## Testing Guidelines
+      - **Frontend**: Vitest + React Testing Library (unit/component tests)
+      - **Backend**: Pytest with HTTPX TestClient, factory-boy fixtures for DB, VCR.py for LLM stubs
+      - **End-to-End**: Playwright (browser) executing against running dev servers
+      - One test case per it()/test_ block; use expect(value).toXyz(...); omit "should" in titles
+      - Test file patterns: .test.ts, .spec.ts, or test_*.py
+      - Mock external services (Stripe, Supabase, LLM providers) with local stubs or replay
+      
+      ## Build Commands
+      - Type-check and lint: `pnpm check`
+      - Auto-fix style: `pnpm check:fix`
+      - Test frontend: `pnpm test:web`
+      - Test backend: `pnpm test:api`
+      - Test all: `pnpm test`
+      - Dev servers: `pnpm dev`
+      - LangConnect: `docker compose up langconnect`
+      - Build: `pnpm build`
+      - Preview: `pnpm preview`
+      
+      ## Git Workflow
+      - Always run `pnpm check` before committing
+      - Auto-fix style issues with `pnpm check:fix`
+      - Verify type safety with `pnpm build`
+      - Never push secrets
+      - Do **not** `git push --force` on `main`
+      - Use feature branches; `git push --force-with-lease` only on your own branches
+      - Open pull requests; `main` is protected
+      - Use conventional commit format for all commit messages
+      
+      ## Configuration Pattern
+      - Environment keys follow: APP_<SCOPE>_<NAME>
+      - Add to .env.example, declare in env.ts or settings.py
+      - Document in README.md
+      - Examples: APP_DB_URL, APP_STRIPE_SECRET_KEY, APP_LANGCONNECT_API_KEY
+  examples:
+    - input: "What database are we using?"
+      output: "We're using PostgreSQL on Supabase with the pgvector extension for vector storage, accessed via SQLModel ORM."
+    - input: "How should I structure the frontend?"
+      output: "Use Next.js 14 with React Server Components, TypeScript in strict mode, Tailwind CSS with shadcn-ui components, and TanStack Query for server state management."
+    - input: "What's our testing strategy?"
+      output: "Frontend: Vitest + React Testing Library; Backend: Pytest with HTTPX TestClient; E2E: Playwright. Mock external services and use factory-boy fixtures for DB testing."
+    - input: "What's our testing strategy?"
+      output: "Frontend: Vitest + React Testing Library; Backend: Pytest with HTTPX TestClient; E2E: Playwright. Mock external services and use factory-boy fixtures for DB testing."
+    metadata:
+    version: 1.0
+</rule> 
