@@ -8,7 +8,7 @@ Use a decent reasoning model (o3, Gemini 2.5 Pro) that can do web-search.
 
 ## 2. Spec prompt - get detailed PRD
 
-Uses output from previous Request Prompt iteration <project_request> to generate the full PRD incl. technical specification.
+Uses output from previous Request Prompt iteration `<project_request>` to generate the full PRD incl. technical specification.
 
 Add rules about project/technical architecture in `<project_rules>`
 
