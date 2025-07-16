@@ -22,10 +22,12 @@ Once you're happy you will have your final PRD/Tech Spec.
 Take the PRD and place it into your project as `prd.md`
 
 Then initialize task-master and run following commands: 
-```
-# Generate tasks from a PRD document  
+
+```  
 tm parse-prd
 ```
+Generate tasks from a PRD document
+
 
 ```
 tm generate
