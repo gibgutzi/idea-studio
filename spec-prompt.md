@@ -56,145 +56,168 @@ After your analysis, generate the combined PRD and technical specification using
 # {Project Name} Product Requirements & Technical Specification
 ## Part I – Product Requirements Document (PRD)
 
-### 1. Product overview
-#### 1.1 Document title and version
-- PRD: {Project Name}
-- Version: {version_number}
+### 1 · Product overview  
+#### 1.1 Document title & version  
+- **PRD**: {Project Name}  
+- **Version**: {version_number}
 
-#### 1.2 Product summary
-- Overview of the project (2–3 short paragraphs)
+#### 1.2 Product summary  
+> Two-to-three short paragraphs describing problem, solution and differentiation.
 
-### 2. Goals
-#### 2.1 Business goals
-- Bullet list
+---
 
-#### 2.2 User goals
-- Bullet list
+### 2 · Goals  
+| Scope | Description (bullets) |
+|-------|-----------------------|
+| **2.1 Business goals** | … |
+| **2.2 User goals** | … |
+| **2.3 Non-goals** | … |
 
-#### 2.3 Non-goals
-- Bullet list
+---
 
-### 3. User personas
-#### 3.1 Key user types
-- Bullet list
+### 3 · User personas  
+| Section | Content |
+|---------|---------|
+| **3.1 Key user types** | Bullet list |
+| **3.2 Persona details** | **Persona**: Short bio |
+| **3.3 Role-based access** | **Role** → Permissions matrix |
 
-#### 3.2 Basic persona details
-- **Persona**: Description
+---
 
-#### 3.3 Role-based access
-- **Role**: Permissions
+### 4 · Narrative  
+*A concise first-person “day-in-the-life” story from the primary user, grounding the reader before they scan requirements.*
 
-### 4. Functional requirements
-- **Feature** (Priority: High|Medium|Low)
-	- Requirement bullets
+---
 
-### 5. User experience
-#### 5.1 Entry points & first-time user flow
-- Bullets
+### 5 · Functional requirements *(WHAT – authoritative list)*  
+For each feature:  
+- **Feature** (Priority: High | Medium | Low)  
+  - Requirement bullets (user-visible behaviour only; no implementation detail)
 
-#### 5.2 Core experience
-- **Step**: Explanation
-	- Good first-time experience notes
+---
 
-#### 5.3 Advanced features & edge cases
-- Bullets
+### 6 · User experience  
+| Sub-section | Guidance |
+|-------------|----------|
+| **6.1 Entry points & first-time flow** | Bullets |
+| **6.2 Core experience** | **Step**: Explanation |
+| **6.3 Advanced features & edge cases** | Bullets |
+| **6.4 UI/UX highlights** | Bullets |
 
-#### 5.4 UI/UX highlights
-- Bullets
+---
 
-### 6. Narrative
-Paragraph narrative from perspective of primary user.
+### 7 · Success metrics  
+| Category | Bullet metrics |
+|----------|----------------|
+| **7.1 User-centric** | … |
+| **7.2 Business** | … |
+| **7.3 Technical (SLIs/SLOs)** | … |
 
-### 7. Success metrics
-#### 7.1 User-centric metrics
-- Bullets
+---
 
-#### 7.2 Business metrics
-- Bullets
+### 8 · Technical considerations *(WHY these constraints matter)*  
+| Topic | Content (high-level only) |
+|-------|---------------------------|
+| **8.1 Integration rationale** | External systems & why they’re needed |
+| **8.2 Data storage & privacy** | Retention, compliance, PII notes |
+| **8.3 Scalability & performance risks** | Narrative only; no numbers |
+| **8.4 Project-wide challenges** | API limits, legal, etc. |
 
-#### 7.3 Technical metrics
-- Bullets
+---
 
-### 8. Technical considerations
-#### 8.1 Integration points
-- Bullets
+### 9 · Milestones & sequencing  
+| Section | Content |
+|---------|---------|
+| **9.1 Project size estimate** | {Small | Medium | Large}: {time_estimate} |
+| **9.2 Team composition** | Roles & FTE count |
+| **9.3 Phases** | **Phase X**: Summary (time) – deliverables |
 
-#### 8.2 Data storage & privacy
-- Bullets
+---
 
-#### 8.3 Scalability & performance
-- Bullets
+## Part II – Technical Specification  
+*(HOW – implementation detail. When requirements are needed, **reference PRD §5**.)*
 
-#### 8.4 Potential challenges
-- Bullets
+### 1 · System overview  
+- Core purpose & value proposition *(brief)*  
+- Key workflows *(sequence diagrams or text)*  
+- System architecture diagram & explanation  
+  - **Reference:** Scalability goals → PRD §8.3
 
-### 9. Milestones & sequencing
-#### 9.1 Project estimate
-- {Small|Medium|Large}: {time_estimate}
+---
 
-#### 9.2 Team size & composition
-- Bullet list
+### 2 · Project structure  
+Folder / module layout, naming conventions, tooling.
 
-#### 9.3 Suggested phases
-- **Phase 1**: Description (time) – deliverables
-- **Phase 2**: Description (time) – deliverables
+---
 
-## Part II – Technical Specification
-### 1. System Overview
-- Core purpose and value proposition
-- Key workflows
-- System architecture
+### 3 · Feature implementation *(per feature – do **not** restate requirements; link to PRD §5)*  
+#### 3.1 {Feature Name}  
+- **Reference requirements:** PRD §5 ► {Feature Name}  
+- **Implementation notes & steps**  
+- **Error handling / edge cases**  
+*(Repeat §3.1 block for each feature.)*
 
-### 2. Project Structure
-- Detailed breakdown of project structure & organization
+---
 
-### 3. Feature Specification
-For each feature:
+### 4 · Database schema  
+- ERD diagram  
+- Table definitions, relationships, indexes  
+- Migration strategy  
+  - **Reference privacy constraints:** PRD §8.2
 
-#### 3.1 Feature Name
-- Requirements
-- Detailed implementation steps
-- Error handling and edge cases
+---
 
-### 4. Database Schema
-#### 4.1 Tables
-- Table schema, relationships, indexes
+### 5 · Server actions & integrations  
+#### 5.1 Database actions  
+- Inputs, outputs, queries/ORM snippets  
 
-### 5. Server Actions
-#### 5.1 Database Actions
-- Description, inputs, outputs, queries/ORM
+#### 5.2 External actions  
+- API endpoints, auth methods, rate-limit handling  
+  - **Reference rationale:** PRD §8.1
 
-#### 5.2 Other Actions
-- External APIs, file handling, processing algorithms
+---
 
-### 6. Design System
-#### 6.1 Visual Style
-- Color palette, typography, components, spacing
+### 6 · Design system (visual language)  
+- Color palette, typography, spacing scale  
+- Token & theme structure
 
-#### 6.2 Core Components
-- Layout, navigation, shared components, states
+### 7 · Component architecture (code)  
+| Layer | Details |
+|-------|---------|
+| **7.1 Server components** | Data fetching, suspense, errors |
+| **7.2 Client components** | State management, events, props |
 
-### 7. Component Architecture
-#### 7.1 Server Components
-- Data fetching, suspense, error handling, props
+---
 
-#### 7.2 Client Components
-- State management, events, UI interactions, props
+### 8 · Authentication & authorization  
+- Flow diagrams, libraries, token strategy  
+- Mapping of **Role** → Permissions *(link: PRD §3.3)*
 
-### 8. Authentication & Authorization
-- Implementation details
+---
 
-### 9. Data Flow
-- Server/client data passing mechanisms, state management
+### 9 · Data flow & state management  
+End-to-end request/response or event pipelines (single canonical diagram).
 
-### 10. Stripe Integration
-- Payment flow, webhook handling, product/price config
+---
 
-### 11. PostHog Analytics
-- Strategy, event tracking, custom properties
+### 10 · Payments (Stripe)  
+Payment flow, webhook security, product/price setup.
 
-### 12. Testing
-- Unit tests, e2e tests
+---
+
+### 11 · Analytics (PostHog)  
+Event schema, tracking plan, custom properties, dashboards.
+
+---
+
+### 12 · Testing & quality  
+- Unit tests, e2e tests, contract tests  
+- Coverage goals & CI integration  
+- **Reference SLIs/SLOs:** PRD §7.3
+
+---
+
+
 
 ```
 
